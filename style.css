@@ -1,0 +1,223 @@
+:root {
+    --jet: #33312d;
+    --drab-dark-brown: #594e36;
+    --reseda-green: #7e846b;
+    --ash-gray: #a5ae9e;
+    --platinum: #d0ddd7;
+    --white: #ffffff;
+    --danger: #dc3545;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--platinum);
+    color: var(--jet);
+}
+
+/* --- Header & Navbar --- */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--platinum);
+}
+
+.navbar-brand {
+    color: var(--jet) !important;
+    font-weight: 700;
+}
+
+/* --- Custom Button Styles --- */
+.btn {
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    padding: 0.5rem 1rem;
+}
+
+.btn-primary {
+    background-color: var(--reseda-green);
+    border-color: var(--reseda-green);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #6a705a;
+    border-color: #6a705a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-success {
+    background-color: var(--drab-dark-brown);
+    border-color: var(--drab-dark-brown);
+    color: var(--white);
+}
+
+.btn-success:hover {
+    background-color: #4a412c;
+    border-color: #4a412c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-info {
+    background-color: var(--ash-gray);
+    border-color: var(--ash-gray);
+    color: var(--jet);
+}
+
+.btn-info:hover {
+    background-color: #8c9686;
+    border-color: #8c9686;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Active state for favorites toggle */
+#favorites-toggle-btn.active {
+    background-color: var(--danger);
+    border-color: var(--danger);
+    color: var(--white);
+}
+
+/* --- Photos View --- */
+.date-header {
+    scroll-margin-top: 80px;
+    /* Offset for the sticky navbar */
+}
+
+.date-header h2 {
+    color: var(--jet);
+    font-weight: 700;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.date-header h3 {
+    color: var(--drab-dark-brown);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.photo-grid .photo-item {
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+}
+
+.photo-grid .photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border-radius: 0.5rem;
+}
+
+.photo-grid .photo-item img:hover {
+    transform: scale(1.05);
+}
+
+/* --- Timeline View --- */
+.timeline-container {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--white);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.timeline-group {
+    cursor: pointer;
+}
+
+.timeline-point {
+    fill: var(--reseda-green);
+}
+
+.timeline-group:hover .timeline-point {
+    r: 10;
+    fill: var(--drab-dark-brown);
+}
+
+.axis path,
+.axis line {
+    stroke: var(--ash-gray);
+}
+
+.axis text {
+    fill: var(--jet);
+    font-size: 12px;
+}
+
+.timeline-label {
+    fill: var(--jet);
+    font-size: 12px;
+    font-weight: 500;
+    text-anchor: middle;
+}
+
+/* --- Modals --- */
+.modal-content {
+    border-radius: 0.75rem;
+    border: none;
+    background-color: #f8f9fa;
+}
+
+.modal-header {
+    background-color: var(--drab-dark-brown);
+    color: var(--white);
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+}
+
+.modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* --- Viewer Modal --- */
+#viewerModal .modal-header {
+    background-color: transparent !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+}
+
+#viewerModal .btn {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#favorite-btn.is-favorite {
+    background-color: var(--white);
+    color: var(--danger);
+}
+
+#favorite-btn.is-favorite .bi-heart {
+    display: none;
+}
+
+#favorite-btn.is-favorite::after {
+    font-family: "bootstrap-icons";
+    content: "\f415";
+}
+
+/* Filled heart icon */
